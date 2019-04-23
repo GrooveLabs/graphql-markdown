@@ -153,46 +153,6 @@ function renderSchema(schema, options) {
     printer(`${prologue}\n`)
   }
 
-  printer('<details>')
-  printer('  <summary><strong>Table of Contents</strong></summary>\n')
-  if (query) {
-    printer('  * [Query](#query)')
-  }
-  if (mutation) {
-    printer('  * [Mutation](#mutation)')
-  }
-  if (objects.length) {
-    printer('  * [Objects](#objects)')
-    objects.forEach(type => {
-      printer(`    * [${type.name}](#${type.name.toLowerCase()})`)
-    })
-  }
-  if (inputs.length) {
-    printer('  * [Inputs](#inputs)')
-    inputs.forEach(type => {
-      printer(`    * [${type.name}](#${type.name.toLowerCase()})`)
-    })
-  }
-  if (enums.length) {
-    printer('  * [Enums](#enums)')
-    enums.forEach(type => {
-      printer(`    * [${type.name}](#${type.name.toLowerCase()})`)
-    })
-  }
-  if (scalars.length) {
-    printer('  * [Scalars](#scalars)')
-    scalars.forEach(type => {
-      printer(`    * [${type.name}](#${type.name.toLowerCase()})`)
-    })
-  }
-  if (interfaces.length) {
-    printer('  * [Interfaces](#interfaces)')
-    interfaces.forEach(type => {
-      printer(`    * [${type.name}](#${type.name.toLowerCase()})`)
-    })
-  }
-  printer('\n</details>')
-
   if (query) {
     printer(
       `\n${'#'.repeat(headingLevel + 1)} Query${
